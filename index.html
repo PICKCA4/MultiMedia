@@ -419,24 +419,35 @@
               <img class="img-fluid mb-5" src="img/portfolio/safe.png" alt="">
 			  
 <!-- html5 canvas test -->
+
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="final_project.js"></script>
+<script src="moving.js?1541636278624"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
 	canvas = document.getElementById("canvas");
 	anim_container = document.getElementById("animation_container");
 	dom_overlay_container = document.getElementById("dom_overlay_container");
-	var comp=AdobeAn.getComposition("0445B1CA2C29074796879CCFF4CFB64E");
+	var comp=AdobeAn.getComposition("E9A3136A5408234284A11F6CF69F551E");
 	var lib=comp.getLibrary();
-	handleComplete({},comp);
+	var loader = new createjs.LoadQueue(false);
+	loader.installPlugin(createjs.Sound);
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
 }
 function handleComplete(evt,comp) {
 	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
 	var lib=comp.getLibrary();
 	var ss=comp.getSpriteSheet();
-	exportRoot = new lib.final_project();
-	stage = new lib.Stage(canvas);	
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.moving();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
 	//Registers the "tick" event listener.
 	fnStartAnimation = function() {
 		stage.addChild(exportRoot);
@@ -483,7 +494,13 @@ function handleComplete(evt,comp) {
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
 }
+function playSound(id, loop) {
+	return createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+}
 </script>
+
+
+
 <!-- end of test -->
 </head>
 <body onload="init();" style="margin:0px;">
