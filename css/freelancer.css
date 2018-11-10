@@ -31,7 +31,7 @@ hr.star-dark {
   margin-right: auto;
 }
 
-#animation_container {
+animation_container {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
@@ -345,11 +345,11 @@ form .row:first-child .floating-label-form-group {
 }
 
 a {
-  color: #ff9933;
+  color: #000000;
 }
 
 a:focus, a:hover, a:active {
-  color: #ff9933;
+  color: #212529;
 }
 
 .btn {
