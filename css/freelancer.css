@@ -31,7 +31,7 @@ hr.star-dark {
   margin-right: auto;
 }
 
-canvas {
+#animation_container {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
