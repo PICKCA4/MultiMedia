@@ -261,6 +261,8 @@ header.masthead h2 {
   right: 2rem;
 }
 
+.center{display: block;margin-left: auto;margin-right: auto;width: 50%;}
+
 .portfolio-modal .portfolio-modal-dialog .close-button i {
   line-height: 38px;
 }
