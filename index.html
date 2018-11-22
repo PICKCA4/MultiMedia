@@ -419,9 +419,8 @@
           
 			  
 <!-- html5 canvas test -->
-
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-<script src="final_project.js?1542594187434"></script>
+<script src="final_project.js?1542890381004"></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
 function init() {
@@ -450,7 +449,7 @@ function handleComplete(evt,comp) {
 	for(i=0; i<ssMetadata.length; i++) {
 		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
 	}
-	exportRoot = new lib.RECOVER_final_project_x();
+	exportRoot = new lib.RECOVER_Newest_RECOVER_final_project_x();
 	stage = new lib.Stage(canvas);
 	stage.enableMouseOver();	
 	//Registers the "tick" event listener.
@@ -504,12 +503,10 @@ function playSound(id, loop) {
 }
 </script>
 <!-- write your code here -->
-
-<p class="mb-5">  <a href="https://docs.google.com/document/d/1dg6hQZXGlUouBTYJTWqdIhG7Iz5iGkMeT7tEkRHwv30/edit?usp=sharing">Click here to view the Documentation </a> </p>  
 </head>
 <body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(0, 102, 255, 1.00); width:1280px; height:1024px">
-		<canvas id="canvas" width="1280" height="1024" style="position: absolute; display: block; background-color:rgba(0, 102, 255, 1.00);"></canvas>
+	<div id="animation_container" style="background-color:rgba(51, 153, 255, 1.00); width:1280px; height:1024px">
+		<canvas id="canvas" width="1280" height="1024" style="position: absolute; display: block; background-color:rgba(51, 153, 255, 1.00);"></canvas>
 		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1280px; height:1024px; position: absolute; left: 0px; top: 0px; display: block;">
 		</div>
 	</div>
